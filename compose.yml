@@ -1,0 +1,62 @@
+name: flagward-telemetry
+
+# Production stack for telemetry.flagward.com, on the same host as the landing.
+# Nginx terminates TLS and proxies to 127.0.0.1:${TELEMETRY_PORT}; see
+# deploy/nginx/telemetry.flagward.com.conf. Set POSTGRES_PASSWORD in .env.
+x-database-url: &database-url
+  DATABASE_URL: postgres://telemetry:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}@db:5432/telemetry
+
+services:
+  db:
+    image: postgres:18-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: telemetry
+      POSTGRES_USER: telemetry
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes:
+      # Postgres 18 images store data under a major-version subdirectory.
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U telemetry -d telemetry"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    build:
+      context: .
+      target: tools
+    environment: *database-url
+    command: ["node", "scripts/migrate.ts"]
+    depends_on:
+      db:
+        condition: service_healthy
+
+  app:
+    build:
+      context: .
+      target: runner
+    restart: always
+    environment: *database-url
+    # Loopback only: the app must be reachable through Nginx, which strips the
+    # client IP, and never directly from the internet.
+    ports:
+      - "127.0.0.1:${TELEMETRY_PORT:-3100}:3000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  retention:
+    build:
+      context: .
+      target: tools
+    restart: always
+    environment: *database-url
+    command: ["node", "scripts/retention.ts"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+volumes:
+  postgres_data:
