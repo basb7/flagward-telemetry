@@ -1,0 +1,25 @@
+name: flagward-telemetry-dev
+
+# Local database for `npm run dev` and the test suite. Port 5433 so it can run
+# next to the Flagward dev stack, which already uses 5432.
+services:
+  db:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=telemetry
+      - POSTGRES_USER=telemetry
+      - POSTGRES_PASSWORD=telemetry
+    ports:
+      - "5433:5432"
+    volumes:
+      # Postgres 18 images store data under a major-version subdirectory.
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U telemetry -d telemetry"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
