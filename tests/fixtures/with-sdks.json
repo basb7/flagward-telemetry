@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "installation_id": "5cfd16ff-4068-41be-9af7-ce9f1804863a",
+  "sent_at": "2026-09-29T17:27:36.562717+00:00",
+  "first_seen_at": "2026-09-29T17:27:36.562713+00:00",
+  "flagward_version": "0.6.0",
+  "mode": "development",
+  "server": "unknown",
+  "runtime": {
+    "python": "3.14",
+    "django": "6.1",
+    "deployment": "bare",
+    "database": "sqlite",
+    "redis_enabled": false,
+    "email_configured": false,
+    "default_plan": "COMMUNITY"
+  },
+  "usage": {
+    "organizations": 1,
+    "projects": 1,
+    "environments": 2,
+    "users": 1,
+    "flags": {
+      "total": 2,
+      "boolean": 1,
+      "multivariate": 1
+    },
+    "flags_with_rules": 2,
+    "strategy_rules": 2,
+    "rules_with_rollout": 1,
+    "variants": 2,
+    "active_overrides": 1
+  },
+  "sdks": [
+    {
+      "type": "javascript",
+      "version": "0.3.0",
+      "active_7d": 1
+    },
+    {
+      "type": "other",
+      "version": "unknown",
+      "active_7d": 1
+    },
+    {
+      "type": "react",
+      "version": "0.4.0",
+      "active_7d": 2
+    }
+  ],
+  "evaluations_24h_bucket": "100-1k"
+}

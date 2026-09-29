@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "installation_id": "c9024a59-a1d3-4fd3-a9d9-c1e3d470c358",
+  "sent_at": "2026-09-29T17:27:35.986899+00:00",
+  "first_seen_at": "2026-09-29T17:27:35.986895+00:00",
+  "flagward_version": "0.6.0",
+  "mode": "development",
+  "server": "unknown",
+  "runtime": {
+    "python": "3.14",
+    "django": "6.1",
+    "deployment": "bare",
+    "database": "sqlite",
+    "redis_enabled": false,
+    "email_configured": false,
+    "default_plan": "COMMUNITY"
+  },
+  "usage": {
+    "organizations": 0,
+    "projects": 0,
+    "environments": 0,
+    "users": 0,
+    "flags": {
+      "total": 0,
+      "boolean": 0,
+      "multivariate": 0
+    },
+    "flags_with_rules": 0,
+    "strategy_rules": 0,
+    "rules_with_rollout": 0,
+    "variants": 0,
+    "active_overrides": 0
+  },
+  "sdks": [],
+  "evaluations_24h_bucket": "0"
+}

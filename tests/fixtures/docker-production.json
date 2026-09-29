@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "installation_id": "d110867f-c007-4c30-9e41-7825eb4bfe27",
+  "sent_at": "2026-09-29T16:44:37.036322+00:00",
+  "first_seen_at": "2026-09-29T16:32:04.138030+00:00",
+  "flagward_version": "0.6.0",
+  "mode": "production",
+  "server": "asgi",
+  "runtime": {
+    "python": "3.14",
+    "django": "6.1",
+    "deployment": "docker",
+    "database": "postgresql",
+    "redis_enabled": true,
+    "email_configured": false,
+    "default_plan": "COMMUNITY"
+  },
+  "usage": {
+    "organizations": 1,
+    "projects": 1,
+    "environments": 1,
+    "users": 1,
+    "flags": {
+      "total": 2,
+      "boolean": 1,
+      "multivariate": 1
+    },
+    "flags_with_rules": 2,
+    "strategy_rules": 2,
+    "rules_with_rollout": 1,
+    "variants": 2,
+    "active_overrides": 0
+  },
+  "sdks": [],
+  "evaluations_24h_bucket": "0"
+}
