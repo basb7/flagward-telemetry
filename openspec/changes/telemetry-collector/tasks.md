@@ -97,7 +97,7 @@ Decision needed before commit: Yes (initial import vs PR chain)
 - [x] 7.3 Same again → still one heartbeat row for today
 - [x] 7.4 Page at `/en` and `/es`: "not enough data" with < 5 installs; seed script with ≥ 5 established installs → breakdowns appear, rare values as `other`
 - [x] 7.5 `/v1/stats` numbers equal the page
-- [ ] 7.6 User approves → decide import/PR split and GitHub repo creation
+- [x] 7.6 User approves → decide import/PR split and GitHub repo creation
 
 ## Phase 8: Deploy (separate decision)
 
