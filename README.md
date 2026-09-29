@@ -45,10 +45,15 @@ npm run db:generate         # new SQL migration after editing lib/db/schema.ts
 # Fake established installations, so the page shows breakdowns (localhost only)
 DATABASE_URL=postgres://telemetry:telemetry@localhost:5433/telemetry node scripts/seed-demo.ts
 
-# Send a real heartbeat from a local Flagward checkout
-FLAGWARD_TELEMETRY=true FLAGWARD_TELEMETRY_URL=http://localhost:3000/v1/heartbeat \
-  python manage.py telemetry --send
+# Post real Flagward payloads (tests/fixtures) to the local app
+curl -i -X POST -H 'content-type: application/json' \
+  --data @tests/fixtures/docker-production.json http://localhost:3000/v1/heartbeat
 ```
+
+Flagward always sends to `https://telemetry.flagward.com` (the destination is
+not configurable), so a local collector is exercised with `curl` and the
+fixtures rather than from a Flagward checkout. To get a fresh payload from
+Flagward, run `python manage.py telemetry --show` there and post its output.
 
 `tests/fixtures/` holds real payloads produced by Flagward; regenerate them when the schema version changes.
 
@@ -72,7 +77,7 @@ FLAGWARD_TELEMETRY=true FLAGWARD_TELEMETRY_URL=http://localhost:3000/v1/heartbea
 4. **Verify** (from your machine):
    ```bash
    curl -s https://telemetry.flagward.com/health                       # {"status":"ok"}
-   python manage.py telemetry --send                                    # from a Flagward checkout: HTTP 204
+   FLAGWARD_TELEMETRY=true python manage.py telemetry --send            # from a Flagward checkout: HTTP 204
    ```
 
 ### Privacy check after every Nginx or deploy change
