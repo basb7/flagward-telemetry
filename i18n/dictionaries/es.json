@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "Flagward Telemetry — cómo se usa Flagward",
+    "description": "Estadísticas de uso públicas, agregadas y anónimas de las instalaciones self-hosted de Flagward."
+  },
+  "header": {
+    "homeAriaLabel": "Inicio de Flagward Telemetry",
+    "badge": "Telemetría",
+    "github": "GitHub",
+    "website": "flagward.com"
+  },
+  "languageSwitcher": {
+    "ariaLabel": "Cambiar idioma"
+  },
+  "hero": {
+    "eyebrow": "Estadísticas de uso públicas",
+    "title": "Cómo se usa Flagward",
+    "subtitle": "Cada Flagward self-hosted envía un heartbeat anónimo por día. Estos son los agregados: los mismos números que cualquiera puede consultar en JSON.",
+    "updated": "Actualizado {time}",
+    "json": "Ver en JSON"
+  },
+  "headline": {
+    "active7d": "Instalaciones activas (7 días)",
+    "active30d": "Instalaciones activas (30 días)",
+    "production": "producción",
+    "development": "desarrollo",
+    "newUnconfirmed": "Nuevas esta semana, sin confirmar",
+    "newUnconfirmedHint": "Por ahora enviaron un solo día. Se cuentan cuando reportan un segundo día.",
+    "establishedHint": "Instalaciones que reportaron al menos dos días distintos."
+  },
+  "weekly": {
+    "title": "Instalaciones activas por semana",
+    "empty": "Todavía no hay datos semanales."
+  },
+  "breakdowns": {
+    "title": "Qué usan",
+    "flagward_version": "Versión de Flagward",
+    "deployment": "Despliegue",
+    "database": "Base de datos",
+    "redis_enabled": "Redis",
+    "email_configured": "Email configurado",
+    "evaluations_24h_bucket": "Evaluaciones de flags, últimas 24 h",
+    "installs": "instalaciones"
+  },
+  "values": {
+    "other": "Otros",
+    "true": "Sí",
+    "false": "No",
+    "docker": "Docker",
+    "bare": "Servidor / VM",
+    "postgresql": "PostgreSQL",
+    "sqlite": "SQLite",
+    "unknown": "Desconocida",
+    "react": "React",
+    "vue": "Vue",
+    "svelte": "Svelte",
+    "solid": "Solid",
+    "javascript": "JavaScript",
+    "python": "Python",
+    "go": "Go"
+  },
+  "sdks": {
+    "title": "Adopción de SDKs",
+    "hint": "Porcentaje de instalaciones con al menos un entorno que usó cada SDK en los últimos 7 días.",
+    "versions": "Versiones",
+    "empty": "Ningún SDK llegó todavía a cinco instalaciones."
+  },
+  "features": {
+    "title": "Adopción de funcionalidades",
+    "multivariate": "Usan flags multivariante",
+    "rollout": "Liberan una variante a un segmento",
+    "override": "Tienen un kill switch activo",
+    "medianFlags": "Mediana de flags por instalación"
+  },
+  "notEnough": {
+    "title": "Todavía no hay suficientes datos",
+    "body": "Los desgloses aparecen cuando al menos cinco instalaciones reportaron en dos días distintos, para que ninguna instalación pueda identificarse."
+  },
+  "privacy": {
+    "title": "Qué recolectamos, y qué nunca hacemos",
+    "collected": "Cantidades, versiones y configuraciones activadas o no: nunca nombres, emails, claves de flags, API keys ni hostnames.",
+    "ip": "Las direcciones IP nunca se guardan: nuestro proxy las descarta antes de que el request llegue a este servicio, y no guarda logs de acceso.",
+    "groups": "Los grupos de menos de cinco instalaciones se muestran como “Otros”, y cada instalación cuenta una vez, sin importar su tamaño.",
+    "disableTitle": "Desactivarla",
+    "disableBody": "Configura esto en el entorno de tu Flagward y reinícialo:",
+    "fields": "Todos los campos que se envían",
+    "source": "Código fuente de esta página"
+  },
+  "footer": {
+    "tagline": "Estadísticas de uso anónimas de Flagward, la plataforma open source de feature flags.",
+    "copyright": "© Flagward. Licencia MIT."
+  }
+}
